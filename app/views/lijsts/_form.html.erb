@@ -1,0 +1,23 @@
+<%= form_for(@aanwezig) do |f| %>
+  <% if @aanwezig.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@aanwezig.errors.count, "error") %> prohibited this aanwezig from being saved:</h2>
+
+      <ul>
+      <% @aanwezig.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :aantal %><br />
+    <%= f.text_field :aantal %>
+  </div>
+  <div class="actions">
+	<%= link_to f.submit , :action => "new", 
+	:id => @aanwezig.vak_id %>
+    
+  </div>
+<% end %>

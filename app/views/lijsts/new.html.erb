@@ -1,0 +1,24 @@
+
+
+<% if current_user %>
+	<h1><%= @vak.naam -%></h1>
+	<table>
+	<% @vak.aanwezigs.each do |c| %>
+	<tr>
+
+	<td><%= link_to c.student.naam, {:action => 'edit', :id => c.id} %></td>
+
+
+	<td></td><td></td><td></td><td></td><td></td>
+	<td><%= c.aantal -%></td>
+	<td></td><td></td><td></td><td></td><td></td>
+
+	</tr>
+	<% end %>
+	</table>
+	
+<% else%>
+		<p>Je moet inloggen om deze pagina te bekijken</p>
+<% end %>
+
+<%= link_to 'Terug', users_path %>

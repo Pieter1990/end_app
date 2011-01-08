@@ -1,0 +1,38 @@
+
+<p id="notice"><%= notice %></p>
+
+ <% if current_user %>
+	<% if current_user.username=='admin' %>
+		<h1>Lijst van gebruikers</h1>
+   
+		<table>
+  			<tr>
+    			<th>Gebruiker</th>
+    			<th>Email</th>
+    			<th></th>
+    			<th></th>
+    			<th></th>
+  			</tr>
+
+			<% @users.each do |user| %>
+  			<tr>
+    			<td><%= user.username %></td>
+    			<td><%= user.email %></td>
+    			<td><%= link_to 'Toon gegevens', user %></td>
+    			<td><%= link_to 'Wijzig', edit_user_path(user) %></td>
+    			<td><%= link_to 'Verwijder', user, :confirm => 'Ben je zeker?', :method => :delete %></td>
+  			</tr>
+			<% end %>
+		</table>
+<%= link_to 'Nieuwe gebruiker', new_user_path %>
+		<% else %>
+			<h1>Welkom op de website</h1>
+			 <p>Om aanwezigheden op te nemen klik op de link "ga naar de vakkenlijst".</p>
+			<% end %>
+		<% else %>
+		<p>je moet inloggen om deze pagina te zien.</p>
+		
+		<% end %>
+
+<br />
+

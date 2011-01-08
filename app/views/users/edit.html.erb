@@ -1,0 +1,14 @@
+<% if current_user %>
+
+		<h1>Verander gebruikersgegevens</h1>
+
+		<%= render 'form' %>
+		<%= link_to 'Toon gegevens', @user %> |
+	
+<% else%>
+		<p>Je moet inloggen om deze pagina te zien</p>
+<% end %>
+
+<%= link_to 'Terug', users_path %>
+
+

@@ -1,0 +1,39 @@
+
+
+<% if current_user %>
+	<% if current_user.username=='admin' %>
+		<h1>Lijst van aanwezigheden</h1>
+
+		<table>
+		  <tr>
+		    <th>Vak</th>
+		    <th>Student</th>
+		    <th>Aantal</th>
+		    <th></th>
+		    <th></th>
+		    <th></th>
+		  </tr>
+
+		<% @aanwezigs.each do |aanwezig| %>
+		  <tr>
+		    <td><%= aanwezig.vak.naam %></td>
+		    <td><%= aanwezig.student.naam %></td>
+		    <td><%= aanwezig.aantal %></td>
+		    <td><%= link_to 'Toon', aanwezig %></td>
+		    <td><%= link_to 'Wijzig', edit_aanwezig_path(aanwezig) %></td>
+		    <td><%= link_to 'Verwijder', aanwezig, :confirm => 'Ben je zeker?', :method => :delete %></td>
+		  </tr>
+		<% end %>
+		</table>
+
+		<br />
+
+		<%= link_to 'Nieuwe aanwezigheid', new_aanwezig_path %>
+	<% else%>
+		<p>Voor deze pagina moet je administrator-machtiging hebben</p>
+	<% end %>
+<% else%>
+		<p>Voor deze pagina moet je administrator-machtiging hebben</p>
+<% end %>
+
+<%= link_to 'Terug', users_path %>

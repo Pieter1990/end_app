@@ -1,0 +1,14 @@
+
+
+<% if current_user %>
+	<ul id="vaks">
+	<% Vak.find(:all).each do |c| %>
+	<li><%= link_to c.naam, :action => "new", 
+	:id => c.id %></li>
+	<% end %>
+	</ul>
+<% else%>
+		<p>Je moet inloggen om de pagina te bekijken</p>
+<% end %>
+
+<%= link_to 'Terug', users_path %>

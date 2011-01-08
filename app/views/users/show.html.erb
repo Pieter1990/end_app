@@ -1,0 +1,28 @@
+
+
+
+
+<% if current_user %>
+	<% if current_user.username=='admin' %>
+		<p id="notice"><%= notice %></p>
+
+		<p>
+		  <b>Gebruiker:</b>
+		  <%= @user.username %>
+		</p>
+
+		<p>
+		  <b>Email:</b>
+		  <%= @user.email %>
+		</p>
+		<%= link_to 'Wijzig', edit_user_path(@user) %> |
+		
+	
+	<% else%>
+		<p>Voor deze pagina moet je administrator-machtiging hebben</p>
+	<% end %>
+<% else%>
+		<p>Voor deze pagina moet je administrator-machtiging hebben</p>
+<% end %>
+
+<%= link_to 'Terug', users_path %>

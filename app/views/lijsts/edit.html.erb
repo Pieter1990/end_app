@@ -1,0 +1,17 @@
+
+
+<% if current_user %>
+	<h1>Wijzig aanwezigheid voor:</h1>
+	<p>vak: <%= @aanwezig.vak.naam %></p>
+	<p>Student: <%= @aanwezig.student.naam %>
+
+	<%= render 'form' %>
+
+
+<%= link_to 'Terug', :action => "new", 
+:id => @aanwezig.vak_id %>
+<% else%>
+		<p>Je moet inloggen om de pagina te bekijken</p>
+		<%= link_to 'Terug', users_path %>
+<% end %>
+

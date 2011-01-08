@@ -1,0 +1,32 @@
+<%= form_for(@aanwezig) do |f| %>
+  <% if @aanwezig.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@aanwezig.errors.count, "error") %> prohibited this aanwezig from being saved:</h2>
+
+      <ul>
+      <% @aanwezig.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+	<%= f.label :vak %><br />
+   	<%= collection_select(:aanwezig, :vak_id,
+	                         @vaks, :id, :naam) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :student %><br />
+    <%= collection_select(:aanwezig, :student_id,
+	                         @students, :id, :naam) %>
+  </div>
+  <div class="field">
+    <%= f.label :aantal %><br />
+    <%= f.text_field :aantal %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

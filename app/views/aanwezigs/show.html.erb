@@ -1,0 +1,34 @@
+
+
+
+
+
+<% if current_user %>
+	<% if current_user.username=='admin' %>
+		
+
+		<p>
+		  <b>Vak:</b>
+		  <%=  @aanwezig.vak.naam %>
+		</p>
+
+
+		<p>
+		  <b>Student:</b>
+		  <%= @aanwezig.student.naam %>
+		</p>
+
+		<p>
+		  <b>Aantal:</b>
+		  <%= @aanwezig.aantal %>
+		</p>
+		<%= link_to 'Wijzig', edit_aanwezig_path(@aanwezig) %> |
+		<%= link_to 'Terug', aanwezigs_path %>
+	<% else%>
+		<p>Voor deze pagina moet je administrator-machtiging hebben</p>
+	<% end %>
+<% else%>
+		<p>Voor deze pagina moet je administrator-machtiging hebben</p>
+<% end %>
+
+<%= link_to 'Terug', users_path %>

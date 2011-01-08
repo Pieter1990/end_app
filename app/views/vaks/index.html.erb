@@ -1,0 +1,34 @@
+
+<% if current_user %>
+	<% if current_user.username=='admin' %>
+		<h1>Lijst van al de vakken</h1>
+
+		<table>
+		  <tr>
+		    <th>Naam</th>
+		    <th></th>
+		    <th></th>
+		    <th></th>
+		  </tr>
+
+		<% @vaks.each do |vak| %>
+		  <tr>
+		    <td><%= vak.naam %></td>
+		    <td><%= link_to 'Toon vakken', vak %></td>
+		    <td><%= link_to 'Wijzig', edit_vak_path(vak) %></td>
+		    <td><%= link_to 'Verwijder', vak, :confirm => 'Ben je zeker?', :method => :delete %></td>
+		  </tr>
+		<% end %>
+		</table>
+
+		<br />
+
+		<%= link_to 'New Vak', new_vak_path %>
+	<% else%>
+		<p>Voor deze pagina moet je administrator-machtiging hebben</p>
+	<% end %>
+<% else%>
+		<p>Voor deze pagina moet je administrator-machtiging hebben</p>
+<% end %>
+
+<%= link_to 'Terug', users_path %>

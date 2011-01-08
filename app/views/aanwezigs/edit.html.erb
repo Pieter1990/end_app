@@ -1,0 +1,18 @@
+
+
+<% if current_user %>
+	<% if current_user.username=='admin' %>
+		<h1>Wijzig aanwezigheid</h1>
+
+		<%= render 'form' %>
+
+		<%= link_to 'Toon aanwezigheid', @aanwezig %> |
+		<%= link_to 'Terug', aanwezigs_path %>
+	<% else%>
+		<p>Voor deze pagina moet je administrator-machtiging hebben</p>
+	<% end %>
+<% else%>
+		<p>Voor deze pagina moet je administrator-machtiging hebben</p>
+<% end %>
+
+<%= link_to 'Terug', users_path %>

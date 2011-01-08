@@ -1,0 +1,17 @@
+
+<% if current_user %>
+	<% if current_user.username=='admin' %>
+	<br/><br/><br/><br/><br/>
+
+	<%= link_to 'Gebruikers wijzigen', "../users" %><br/>
+	<%= link_to 'Studenten wijzigen', "../students" %><br/>
+	<%= link_to 'Vakken wijzigen', "../vaks" %><br/>
+	<%= link_to 'Aanwezigheden wijzigen', "../aanwezigs" %><br/>
+	<% else%>
+		<p>Voor deze pagina moet je administrator-machtiging hebben</p>
+	<% end %>
+<% else%>
+		<p>Voor deze pagina moet je administrator-machtiging hebben</p>
+<% end %>
+
+<%= link_to 'Terug', users_path %>
